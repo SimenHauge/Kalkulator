@@ -20,16 +20,15 @@ const KalkScreen = styled.div`
     text-align: center;
 `;
 
-const Tekstboks = styled.p`
-    color: white;
+const Tekstboks = styled.div`
     font-size: 20px;
     opacity: 0.7;
     height: 35px;
 `;
 
-const Resultatboks = styled.p`
-    color: white;
+const Resultatboks = styled.div`
     font-size: 30px;
+    margin-top: 10px;
 `;
 
 const Reset = styled.button`
@@ -70,8 +69,7 @@ const RegneKnapper = styled.div`
     float: right;
     width: 65px;
     margin-right: 45px;
-    margin-top: 25px;
-    
+    margin-top: 22px;
 `;
 
 const KnappStyleWide = styled(KnappStyled)`
@@ -116,8 +114,8 @@ export const SimenKomp = () => {
   };
 
 
-  const RegnUt = () => {g
-    let resultat = 0;g
+  const RegnUt = () => {
+    let resultat = 0;
 
     // eslint-disable-next-line no-console
     console.log(`tall1: ${tall1} ${operator} tall2: ${tall2}`);
@@ -152,6 +150,7 @@ export const SimenKomp = () => {
         resultat = 0;
     }
 
+    setOperator(" = ");
     setTall1(resultat);
     setCurrentNumber(resultat);
   };
