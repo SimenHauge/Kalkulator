@@ -93,10 +93,12 @@ export const SimenKomp = () => {
   const [operator, setOperator] = useState(null);
 
   const OperatorKlikk = (operatoren) => {
-    setOperator(operatoren);
-    setIsFirst(false);
-    setCurrentNumber('');
-    setHistorikk(historikk + operatoren);
+    if(operator === null && tall1 !== null) { 
+      setOperator(operatoren);
+      setIsFirst(false);
+      setCurrentNumber('');
+      setHistorikk(historikk + operatoren);
+    }
   };
 
   const SettVerdi = (verdi) => {
@@ -121,12 +123,15 @@ export const SimenKomp = () => {
     console.log(`tall1: ${tall1} ${operator} tall2: ${tall2}`);
 
     switch (operator) {
+
       case ' / ':
         resultat = (tall1 / tall2);
+
         if (resultat % 1 !== 0) {
           resultat = resultat.toFixed(2);
         }
         break;
+
       case ' x ':
         resultat = tall1 * tall2;
         if (resultat % 1 !== 0) {
@@ -135,32 +140,39 @@ export const SimenKomp = () => {
         break;
 
       case ' + ':
-        resultat = tall1 + tall2;
+        resultat = parseFloat(tall1) + parseFloat(tall2);
         if (resultat % 1 !== 0) {
           resultat = parseFloat(resultat.toFixed(2));
         }
         break;
+
       case ' - ':
         resultat = tall1 - tall2;
         if (resultat % 1 !== 0) {
           resultat = resultat.toFixed(2);
         }
         break;
+
       default:
-        resultat = 0;
+        resultat = currentNumber;
     }
 
-    setOperator(" = ");
+    if(resultat !== currentNumber) {
     setTall1(resultat);
     setCurrentNumber(resultat);
+    setOperator(null);
+    setHistorikk(resultat);
+   }
+  
   };
 
   const resetVerdier = () => {
-    setTall1(0);
-    setTall2(0);
+    setTall1(null);
+    setTall2(null);
     setCurrentNumber('');
     setIsFirst(true);
     setHistorikk('');
+    setOperator(null);
   };
 
   return (
