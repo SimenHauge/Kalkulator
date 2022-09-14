@@ -1,8 +1,21 @@
 import { SimenKomp } from './SimenKalk';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+
+const MinHeader = styled.h1`
+  font-size: 50px;
+  text-align: center;
+  margin: 20px;
+`
+
 
 function App() {
   return (
-        <SimenKomp />
+    <main>
+      <MinHeader>Simens kalkulator</MinHeader>
+      <SimenKomp />
+    </main>
     )
   }
 

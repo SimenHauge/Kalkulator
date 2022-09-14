@@ -5,8 +5,9 @@ const MinDiv = styled.div`
     width 400px;
     height: 625px;
     background-color: lightgrey;
-    float: left;
-    margin-left: 40%;
+    position: fixed;
+    left: 50%;
+    margin-left: -200px;
 `;
 
 const KalkScreen = styled.div`
